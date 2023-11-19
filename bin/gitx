@@ -1,0 +1,224 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "gitx"
+require "pathname"
+require "google_drive"
+
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+# require "irb"
+# IRB.start(__FILE__)
+
+
+gsession = Gitx::Gsession.new()
+
+home_dir = ENV['HOME']
+home_pn = Pathname.new(home_dir)
+
+log_filename = "log.txt"
+
+def gitx_cur_ruby_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "ruby"
+  filename = "gitx10.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+#
+def gitx_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo"
+  filename = "gitx_r_1.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+
+def gitx_ykominami_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo" + "ykominami"
+  filename = "gitx_r_2.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+
+def gitx_bmlist_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo" + "bmlist"
+  filename = "gitx_r_3.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+
+def gitx_github_ykominami_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo" + "github" + "ykominami"
+  filename = "gitx_r_4.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+
+def gitx_github_com_so_fancy_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo" + "github.com" + "so-fancy"
+  filename = "gitx_r_5.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_gitlab_com_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo" + "gitlab.com"
+  filename = "gitx_r_6.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_spike_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo" + "SPIKE"
+  filename = "gitx_r_7.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_xrepo_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo" + "xrepo"
+  filename = "gitx_r_8.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_y_repo(gsession, home_pn, log_filename)
+  pn = home_pn + "repo" + "y"
+  filename = "gitx_r_9.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_anaconda3(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "Anaconda3"
+  filename = "gitx_c_1.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_anaconda3(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "Anaconda3"
+  filename = "gitx_c_2.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_athrill(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "athrill"
+  filename = "gitx_c_3.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_c(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "c"
+  filename = "gitx_c_4.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_chrome_ext(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "chrome-ext"
+  filename = "gitx_c_5.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_chrome_ext_next_ts_app(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "chrome-ext" + "next-ts-app"
+  filename = "gitx_c_6.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_chrome_ext_next_typescript(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "chrome-ext" + "next-typescript"
+  filename = "gitx_c_7.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_chrome_ext_tohoho_js(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "chrome-ext" + "tohoho" + "js"
+  filename = "gitx_c_8.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_deno(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "deno"
+  filename = "gitx_c_9.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_docker(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "docker"
+  filename = "gitx_c_10.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_docker_h2o_1(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "docker" + "h2o" + "1"
+  filename = "gitx_c_10.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_docker_h2o_1_h2o_deps(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "docker" + "h2o" + "1" + "h2o" + "deps"
+  filename = "gitx_c_11.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_docker_mysql_rails(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "docker" + "mysql_rails"
+  filename = "gitx_c_12.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_docker_pg_rails(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "docker" + "pg_rails"
+  filename = "gitx_c_13.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_docker_microservice_FirstMS/(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "docker" + "microservice" + "FirstMS"
+  filename = "gitx_c_14.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+def gitx_cur_electron_2023(gsession, home_pn, log_filename)
+  pn = home_pn + "cur" + "electron" + "2023"
+  filename = "gitx_c_15.csv"
+
+  gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
+end
+
+
+=begin
+gitx_cur_ruby_repo(gsession, home_pn, log_filename)
+gitx_repo(gsession, home_pn, log_filename)
+gitx_ykominami_repo(gsession, home_pn, log_filename)
+gitx_bmlist_repo(gsession, home_pn, log_filename)
+gitx_github_ykominami_repo(gsession, home_pn, log_filename)
+gitx_github_com_so_fancy_repo(gsession, home_pn, log_filename)
+gitx_gitlab_com_repo(gsession, home_pn, log_filename)
+gitx_spike_repo(gsession, home_pn, log_filename)
+gitx_xrepo_repo(gsession, home_pn, log_filename)
+gitx_y_repo(gsession, home_pn, log_filename)
+#
+gitx_cur_anaconda3(gsession, home_pn, log_filename)
+gitx_cur_athrill(gsession, home_pn, log_filename)
+gitx_cur_c(gsession, home_pn, log_filename)
+gitx_cur_chrome_ext(gsession, home_pn, log_filename)
+gitx_cur_chrome_ext_next_ts_app(gsession, home_pn, log_filename)
+gitx_cur_chrome_ext_next_typescript(gsession, home_pn, log_filename)
+=end
+gitx_cur_chrome_ext_tohoho_js(gsession, home_pn, log_filename)
+gitx_cur_docker(gsession, home_pn, log_filename)
+gitx_cur_docker_h2o_1(gsession, home_pn, log_filename)
+gitx_cur_docker_h2o_1_h2o_deps(gsession, home_pn, log_filename)
+gitx_cur_docker_mysql_rails(gsession, home_pn, log_filename)
+gitx_cur_docker_pg_rails(gsession, home_pn, log_filename)
+gitx_cur_docker_microservice_FirstMS/(gsession, home_pn, log_filename)
+gitx_cur_electron_2023(gsession, home_pn, log_filename)
+
+# puts content_array
+
+# local_path = "../gitx/gitx.csv"
+# filename = "gitx.csv"
+# session.upload_from_file(local_path, filename, convert: false)
+# obj = session.upload_from_file(local_path, filename, convert: true)
+# obj = session.upload_from_file(local_path, filename, convert: true)
+# obj = session.upload_from_string(content_array.join("\n"), title: filename, params: {} ) 
+
+
