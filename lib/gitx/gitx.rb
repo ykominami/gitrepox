@@ -1,3 +1,4 @@
+require 'git'
 
 module Gitx
   class Gitx
@@ -75,50 +76,6 @@ module Gitx
       else
         []
       end
-    end
-
-    def Gitx.list_repo(src_pn)
-      parts = src_pn.children.map{ |pn|
-        [pn, pn + ".git"]
-      }.partition{ |pns| 
-        pns[1].exist? 
-      }
-      parts[0].select{ |pns|
-        x = pns[0]
-        g = Gitx.new(x)
-        pns << g
-        x.exist?
-      }.map{ |pns|
-        item = pns.first.basename
-        full_path = pns.first.realpath
-        g = pns.last
-        remotes = g.get_remotes
-        if remotes.size > 0
-          remotes.map{ |gr|
-            g.data[gr.name] = {}
-            g.data[gr.name][:full_path] = full_path
-            g.data[gr.name][:basename] = item
-            g.data[gr.name][:url] = gr.url
-            g.data[gr.name][:fetch_opts] = gr.fetch_opts
-          }
-          g
-        else
-          nil
-        end
-      }.select{ |item| item != nil }
-    end
-
-    def repo_to_csv(pn)
-      ary = []
-      Gitx::Gitx.list_repo(pn).each_with_object([0]){ |item, memo|
-        # item.show
-        if memo[0] == 0
-          ary << item.to_csv_header
-          memo[0] = 1
-        end
-        ary << item.to_csv_data
-      }
-      ary
-    end
+    end        
   end
 end

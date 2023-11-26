@@ -3,6 +3,7 @@
 require_relative "gitx/version"
 
 require_relative "gitx/gitx"
+require_relative "gitx/gitxgroup"
 require_relative "gitx/util"
 require_relative "gitx/gsession"
 
