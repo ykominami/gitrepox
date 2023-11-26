@@ -1,0 +1,54 @@
+require 'pathname'
+require 'open3'
+require 'yaml'
+
+home_dir = ENV['HOME']
+home_pn = Pathname.new(home_dir)
+
+fname = ARGV[0]
+if ARGV.size > 1
+  out_fname = ARGV[1]
+else
+  out_fname = "wwn.yaml"
+end
+hs = {}
+
+def use_popen3(fname, hs)
+  stdin, stdout, stderr = *Open3.popen3("find #{fname} -name .git ")
+  listup(stdout, hs)
+end
+
+def use_file(fname, hs)
+  File.open(fname){|file|
+    while line = file.gets
+      line.chomp!
+      pn = Pathname.new(line)
+      pp_pn = pn.parent.parent
+      hs[pp_pn.to_s] ||= pp_pn
+    end
+  }
+end
+
+def listup(io, hs)
+  while line = io.gets
+    line.chomp!
+    pn = Pathname.new(line)
+    pp_pn = pn.parent.parent
+    hs[pp_pn.to_s] = pp_pn
+  end
+end
+
+use_popen3(fname, hs)
+# use_file(fname, hs)
+
+filename_base = "gitx_hr_"
+obj = []
+hs.keys.map{ |path|
+  hs = {}
+  pn = Pathname.new(path)
+  str = pn.relative_path_from(home_pn).to_s
+  hs["paths"] = str.split('/')
+  hs["filename_base"] = filename_base
+  obj << hs
+}
+File.write( out_fname, YAML.dump(obj))
