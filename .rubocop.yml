@@ -1,0 +1,8 @@
+inherit_from: .rubocop_todo.yml
+
+Documentation:
+  Enabled: false
+
+#追加
+Style/FrozenStringLiteralComment:
+  Enabled: false
