@@ -1,7 +1,7 @@
 require 'git'
 
-module Gitx
-  class Gitx
+module Gitrepox
+  class Gitrepox
     attr_reader :data
 
     def initialize(working_dir)

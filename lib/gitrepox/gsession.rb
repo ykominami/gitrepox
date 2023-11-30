@@ -2,7 +2,7 @@ require 'git'
 require 'secretmgr'
 require 'pathname'
 
-module Gitx
+module Gitrepox
   class Gsession
     def initialize(config = 'config.json')
       ensure_config_file(config)

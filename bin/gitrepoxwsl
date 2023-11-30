@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'gitx'
+require 'gitrepox'
 require 'pathname'
 require 'google_drive'
 
@@ -12,7 +12,7 @@ home_pn = Pathname.new(home_dir)
 log_filename = 'log2.txt'
 File.write(log_filename, '') unless Pathname.new(log_filename).exist?
 
-gg = Gitx::Gitxgroup.new(home_pn, log_filename, ARGV)
+gg = Gitrepox::Gitrepoxgroup.new(home_pn, log_filename, ARGV)
 
-# gg =Gitx::Gitxgroup.new(home_pn, yaml_fname)
+# gg =Gitrepox::Gitrepoxgroup.new(home_pn, yaml_fname)
 gg.get_and_upload

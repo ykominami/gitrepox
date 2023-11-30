@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/gitx/version'
+require_relative 'lib/gitrepox/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'gitx'
-  spec.version = Gitx::VERSION
+  spec.name = 'gitrepox'
+  spec.version = Gitrepox::VERSION
   spec.authors = ['ykominami']
   spec.email = ['ykominami@gmail.com']
 
