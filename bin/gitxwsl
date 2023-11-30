@@ -1,26 +1,16 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "bundler/setup"
-require "gitx"
-require "pathname"
-require "google_drive"
-
-
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
-
-# require "irb"
-# IRB.start(__FILE__)
-# yaml_fname = ARGV[0]
-
-# gitx = Gitx::Gitx.new()
+require 'bundler/setup'
+require 'gitx'
+require 'pathname'
+require 'google_drive'
 
 home_dir = ENV['HOME']
 home_pn = Pathname.new(home_dir)
 
-log_filename = "log2.txt"
-File.write(log_filename, "") unless Pathname.new(log_filename).exist?
+log_filename = 'log2.txt'
+File.write(log_filename, '') unless Pathname.new(log_filename).exist?
 
 gg = Gitx::Gitxgroup.new(home_pn, log_filename, ARGV)
 
