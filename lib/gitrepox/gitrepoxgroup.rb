@@ -1,5 +1,5 @@
-module Gitx
-  class Gitxgroup
+module Gitrepox
+  class Gitrepoxgroup
     def initialize(home_pn, log_filename, yaml_fname_or_start_path_array)
       @home_pn = home_pn
       @log_filename = log_filename
@@ -109,7 +109,7 @@ module Gitx
 
     def get_and_upload
       @obj.each do |hash|
-        content = gitx_repo(@home_pn, hash)
+        content = gitrepox_repo(@home_pn, hash)
         next unless content
 
         count = Util.get_count
@@ -130,7 +130,7 @@ module Gitx
       end
       parts[0].select do |pns|
         x = pns[0]
-        g = Gitx.new(x)
+        g = Gitrepox.new(x)
         pns << g
         x.exist?
       end.map  do |pns|
@@ -151,7 +151,7 @@ module Gitx
       end.select { |item| !item.nil? }
     end
 
-    def gitx_repo(home_pn, value)
+    def gitrepox_repo(home_pn, value)
       pn = home_pn
       if value.instance_of?(Hash)
         value['paths'].each do |name|

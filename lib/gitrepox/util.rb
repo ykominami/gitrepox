@@ -1,4 +1,4 @@
-module Gitx
+module Gitrepox
   class Util
     @count = 0
 
