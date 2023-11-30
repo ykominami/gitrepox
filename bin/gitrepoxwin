@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'gitx'
+require 'gitrepox'
 require 'pathname'
 require 'google_drive'
 
@@ -11,7 +11,7 @@ ARGV[0]
 # p fname
 # exit 2000
 
-Gitx::Gsession.new
+Gitre@ox::Gsession.new
 
 home_dir = ENV['HOME']
 home_pn = Pathname.new(home_dir)
@@ -19,7 +19,7 @@ home_pn = Pathname.new(home_dir)
 log_filename = 'log2.txt'
 File.open(log_filename, 'w') {} unless Pathname.new(log_filename).exist?
 
-gg = Gitx::Gitxgroup.new(home_pn, log_filename, ARGV)
+gg = Gitrepox::Gitrepoxgroup.new(home_pn, log_filename, ARGV)
 # exit 1000
 
 gg.get_and_upload
