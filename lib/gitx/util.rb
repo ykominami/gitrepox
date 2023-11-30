@@ -4,12 +4,12 @@ module Gitx
 
     class << self
       def file_append(fname, str)
-        File.open(fname, 'a'){ |file|
-          file.puts str + "\n"
-        }
+        File.open(fname, 'a') do |file|
+          file.puts "#{str}\n"
+        end
       end
 
-      def get_count()
+      def get_count
         count = @count
         @count += 1
         count
