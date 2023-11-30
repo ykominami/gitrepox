@@ -1,47 +1,25 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "bundler/setup"
-require "gitx"
-require "pathname"
-require "google_drive"
+require 'bundler/setup'
+require 'gitx'
+require 'pathname'
+require 'google_drive'
 
+ARGV[0]
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
+# p fname
+# exit 2000
 
-# require "irb"
-# IRB.start(__FILE__)
-fname = ARGV[0]
-
-gsession = Gitx::Gsession.new()
+Gitx::Gsession.new
 
 home_dir = ENV['HOME']
 home_pn = Pathname.new(home_dir)
 
-log_filename = "log2.txt"
-File.open(log_filename, 'w'){} unless Pathname.new(log_filename).exist?
+log_filename = 'log2.txt'
+File.open(log_filename, 'w') {} unless Pathname.new(log_filename).exist?
 
-content = File.read(fname)
-obj = YAML.safe_load(content)
+gg = Gitx::Gitxgroup.new(home_pn, log_filename, ARGV)
+# exit 1000
 
-
-def gitx_repo(gsession, home_pn, log_filename, count, value)
-  pn = home_pn
-  value["paths"].each do |name|
-    pn = pn + name
-  end
-  # filename = value["filename"]
-  filename = [ value["filename_base"] , count , ".csv" ].join("")
-
-  puts filename
-  # gsession.get_list_git_repo_in_spreadsheet(pn, filename, log_filename)
-end
-
-obj.each do |key, value|
-  value.each_with_index{ |hash, count|
-    p count
-    gitx_repo(gsession, home_pn, log_filename, count, hash)
-    # break
-  }
-end
+gg.get_and_upload
