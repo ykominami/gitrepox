@@ -6,7 +6,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.5)
+    addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     declarative (0.0.20)
@@ -41,7 +41,7 @@ GEM
       erubis
       messagex
       rake (~> 13.0)
-    git (1.18.0)
+    git (1.19.0)
       addressable (~> 2.8)
       rchardet (~> 1.8)
     google-apis-core (0.11.2)
@@ -76,9 +76,11 @@ GEM
     memoist (0.16.2)
     messagex (0.1.5)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.5)
     multi_json (1.15.0)
     multipart-post (2.3.0)
-    nokogiri (1.15.5-x64-mingw-ucrt)
+    nokogiri (1.13.10)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     os (1.1.4)
     parallel (1.23.0)
@@ -154,6 +156,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   git
