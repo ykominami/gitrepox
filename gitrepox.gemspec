@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-require_relative 'lib/gitrepox/version'
+require_relative "lib/gitrepox/version"
 
 Gem::Specification.new do |spec|
-  spec.name = 'gitrepox'
+  spec.name = "gitrepox"
   spec.version = Gitrepox::VERSION
-  spec.authors = ['ykominami']
-  spec.email = ['ykominami@gmail.com']
+  spec.authors = ["ykominami"]
+  spec.email = ["ykominami@gmail.com"]
 
-  spec.summary = 'ruby git.'
-  spec.description = 'ruby git.'
+  spec.summary = "ruby git."
+  spec.description = "ruby git."
   # spec.homepage = "TODO: Put your gem's website or public repo URL here."
-  spec.license = 'MIT'
-  spec.required_ruby_version = '>= 2.6.0'
+  spec.license = "MIT"
+  spec.required_ruby_version = ">= 2.6.0"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
@@ -27,13 +27,16 @@ Gem::Specification.new do |spec|
       (File.expand_path(f) == __FILE__) || f.start_with?(*%w[bin/ test/ spec/ features/ .git .circleci appveyor])
     end
   end
-  spec.bindir = 'exe'
+  spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ['lib']
+  spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
+  # spec.add_dependency "loggerx"
+  # spec.add_dependency "debug"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
+  spec.metadata["rubygems_mfa_required"] = "true"
 end
