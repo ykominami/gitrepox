@@ -1,25 +1,23 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'bundler/setup'
-require 'gitrepox'
-require 'pathname'
-require 'google_drive'
-
-ARGV[0]
+require "bundler/setup"
+require "gitrepox"
+require "pathname"
+require "google_drive"
 
 # p fname
 # exit 2000
 
-Gitre@ox::Gsession.new
+Gitrepox::Gsession.new
 
-home_dir = ENV['HOME']
+home_dir = Dir.home
 home_pn = Pathname.new(home_dir)
 
-log_filename = 'log2.txt'
-File.open(log_filename, 'w') {} unless Pathname.new(log_filename).exist?
+log_filename = "log2.txt"
+File.write(log_filename, "") unless Pathname.new(log_filename).exist?
 
-gg = Gitrepox::Gitrepoxgroup.new(home_pn, log_filename, ARGV)
+gg = Gitrepox::Gitrepoxgroup.new(@loggerx, home_pn, log_filename, ARGV)
 # exit 1000
 
 gg.get_and_upload
