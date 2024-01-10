@@ -1,10 +1,11 @@
 module Gitrepox
   class Util
     @count = 0
+    @temp_count = 0
 
     class << self
       def file_append(fname, str)
-        File.open(fname, 'a') do |file|
+        File.open(fname, "a") do |file|
           file.puts "#{str}\n"
         end
       end
@@ -13,6 +14,13 @@ module Gitrepox
         count = @count
         @count += 1
         count
+      end
+
+      def make_temp_basename
+        count = @temp_count
+        @temp_count += 1
+
+        "_tmp_#{count}"
       end
     end
   end

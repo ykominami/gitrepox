@@ -1,16 +1,16 @@
-require 'git'
+require "git"
 
 module Gitrepox
   class Gitrepox
     attr_reader :data
 
-    def initialize(working_dir)
+    def initialize(loggerx, working_dir)
+      @loggerx = loggerx
       @working_dir = working_dir
       begin
         @repo = Git.open(@working_dir)
-      rescue StandardError => exp
-        puts exp.message
-        #
+      rescue StandardError => e
+        @loggerx.error e.message
       end
       @data = {}
     end
@@ -20,25 +20,22 @@ module Gitrepox
     end
 
     def show
-      # p "== show ======"
-      # p @data
       @data.keys.map do |key|
-        puts key
+        @loggerx.debug key
         @data[key].keys.map do |subkey|
-          puts %(#{subkey}: #{@data[key][subkey]})
+          @loggerx.info %(#{subkey}: #{@data[key][subkey]})
         end
       end
-      # p "== show END =="
     end
 
     def to_csv_header
       ary = []
-      ary << 'dir'
+      ary << "dir"
       key = @data.keys[0]
       @data[key].keys.map do |subkey|
         ary << subkey
       end
-      ary.join(',')
+      ary.join(",")
     end
 
     def to_csv_data
@@ -49,7 +46,7 @@ module Gitrepox
           # ary << subkey
           ary << @data[key][subkey]
         end
-        ary.join(',')
+        ary.join(",")
       end.join("\n")
     end
 
@@ -65,9 +62,9 @@ module Gitrepox
 
     def get_remote_url
       if valid_repo?
-        @repo.config('remote.origin.url')
+        @repo.config("remote.origin.url")
       else
-        ''
+        ""
       end
     end
 

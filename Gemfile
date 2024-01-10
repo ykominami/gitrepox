@@ -1,16 +1,25 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Specify your gem's dependencies in gitrepox.gemspec
 gemspec
 
-gem 'rake', '~> 13.0'
-
-gem 'rspec', '~> 3.0'
-
-gem 'git'
-gem 'google_drive'
-
+gem "git"
+gem "google_drive"
+gem "rake", "~> 13.0"
 # gem "secretmgr", path: "../secretmgr"
-gem 'secretmgr', '0.1.0'
+gem "loggerx"
+gem "secretmgr", ">= 0.2.0"
+
+group :test, :development, optional: true do
+  gem "debug"
+  gem "rspec", "~> 3.0"
+  gem "rubocop"
+  gem "rubocop-performance"
+  gem "rubocop-rake", require: false
+  gem "rubocop-rspec", require: false
+end
+
+# group :development, optional: true do
+# end
