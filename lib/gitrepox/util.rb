@@ -16,11 +16,15 @@ module Gitrepox
         count
       end
 
+      def reset_count
+        @count = 0
+      end
+
       def make_temp_basename
         count = @temp_count
         @temp_count += 1
 
-        "_tmp_#{count}"
+        "_tmp_#{count}_"
       end
     end
   end

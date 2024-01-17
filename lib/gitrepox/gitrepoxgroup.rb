@@ -72,7 +72,7 @@ module Gitrepox
       end
       @obj
     end
-
+=begin
     def listup_in_pathname_array(pn_array)
       xhs = {}
       pn_array.each do |pn|
@@ -82,7 +82,7 @@ module Gitrepox
 
       make_parent_pn_info(xhs)
     end
-
+=end
     def make_parent_pn_info(xhs)
       filename_base = "gitx_hr_"
       xhs.keys.map do |path|
@@ -108,7 +108,7 @@ module Gitrepox
         filename_base ||= Util.make_temp_basename
 
         filename = [filename_base, count, ".csv"].join
-        @gsession ||= Gsession.new
+        @gsession ||= Gsession.new(@loggerx)
         if @gsession.valid?
           result = @gsession.upload_from_string(content, filename)
           Util.file_append(@log_filename, result) if result
@@ -123,16 +123,16 @@ module Gitrepox
       return [] if src_pn.file?
 
       parts = if src_pn.basename.to_s =~ /^\.git$/
-                [[[src_pn.parent, src_pn]], [[]]]
-              else
-                # .gitディレクトリが存在するワーキングディレクトリを選択
-                list = src_pn.children.map do |pn|
-                  [pn, pn + ".git"] unless pn.basename.to_s =~ /^\.git$/
-                end
-                list.partition do |pns|
-                  pns[1].exist?
-                end
-              end
+          [[[src_pn.parent, src_pn]], [[]]]
+        else
+          # .gitディレクトリが存在するワーキングディレクトリを選択
+          list = src_pn.children.map do |pn|
+            [pn, pn + ".git"] unless pn.basename.to_s =~ /^\.git$/
+          end
+          list.partition do |pns|
+            pns[1].exist?
+          end
+        end
 
       # parts[0]: gitワーキングディレクトリの配列, parts[1]: 非gitワーキングディレクトリの配列
       parts[0].map do |pns|
