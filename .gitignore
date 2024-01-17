@@ -14,4 +14,9 @@
 log*.txt
 #
 *.code-workspace
+config*.json
+win*.yaml
+wsl*.yaml
+b.yaml
+*.orig
 
