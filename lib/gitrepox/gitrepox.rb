@@ -51,6 +51,7 @@ module Gitrepox
     end
 
     def git_config
+      raise NotImprementedError
       #  remote.origin.url=git@github.com:ykominami/ykutils.git
       #  remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
       # g.config('user.name')  # returns 'Scott Chacon'

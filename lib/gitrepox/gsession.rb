@@ -15,7 +15,9 @@ module Gitrepox
     def initialize(loggerx, config = "config.json")
       @loggerx = loggerx
       result = ensure_config_file(config)
-      @session = (GoogleDrive::Session.from_config(config) if result)
+      #      @session = (GoogleDrive::Session.from_config(config) if result)
+      @session = GoogleDrive::Session.from_config(config)
+      p "@session=#{@session}"
     end
 
     def valid?
