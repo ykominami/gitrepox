@@ -14,7 +14,7 @@ gem "secretmgr", ">= 0.2.0"
 
 group :test, :development, optional: true do
   gem "debug"
-  gem "rspec", "~> 3.0"
+  gem "rspec", "~> 3.13"
   gem "rubocop"
   gem "rubocop-performance"
   gem "rubocop-rake", require: false
