@@ -7,7 +7,7 @@ gemspec
 
 gem "git"
 gem "google_drive"
-gem "rake", "~> 13.0"
+gem "rake", "~> 13.2"
 # gem "secretmgr", path: "../secretmgr"
 gem "loggerx"
 gem "secretmgr", ">= 0.2.0"
