@@ -122,6 +122,7 @@ module Gitrepox
     def list_repo(src_pn)
       return [] if src_pn.file?
 
+<<<<<<< Updated upstream
       parts = if src_pn.basename.to_s =~ /^\.git$/
           [[[src_pn.parent, src_pn]], [[]]]
         else
@@ -141,6 +142,20 @@ module Gitrepox
         item = working_dir_pn
         full_path = working_dir_pn.realpath
         g = Gitrepox.new(@loggerx, item)
+      parts = src_pn.children.map do |pn|
+        [pn, "#{pn}.git"]
+        end.partition do |pns|
+          pns[1].exist?
+        end
+      parts[0].select do |pns|
+        x = pns[0]
+        g = Gitrepox.new(x)
+        pns << g
+        x.exist?
+      end.map  do |pns|
+        item = pns.first.basename
+        full_path = pns.first.realpath
+        g = pns.last
         remotes = g.get_remotes
         next unless remotes.size.positive?
 
